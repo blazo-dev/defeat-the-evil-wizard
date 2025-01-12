@@ -1,5 +1,5 @@
 # Function to print the intro text
-from character import Character
+from characters.character import Character
 
 
 # Function to print the introductory text of the game

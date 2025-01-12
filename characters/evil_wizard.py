@@ -1,5 +1,5 @@
 # evil_wizard.py
-from character import Character
+from characters.character import Character
 
 
 class EvilWizard(Character):

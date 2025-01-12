@@ -1,33 +1,27 @@
-# character.py
-import random
+from characters.warrior import Warrior
+from characters.mage import Mage
+from characters.archer import Archer
+from characters.paladin import Paladin
+import time
+from menus import show_class_menu
 
 
-class Character:
-    def __init__(self, name: str, health: int, attack_power: int, healing_capacity: int = 20):
-        self.name = name
-        self.health = health
-        self.attack_power = attack_power
-        self.max_health = health
-        self.healing_capacity = healing_capacity
+def create_character(character_choice: str, name: str):
+    character_map = {
+        '1': (Warrior, f"Ah, {name}, the mighty Warrior! ⚔️ You are a force of nature!"),
+        '2': (Mage, f"Ah, {name}, the wise Mage! 🧙‍♂️ You possess the power of the arcane!"),
+        '3': (Archer, f"Ah, {name}, the skilled Archer! 🏹 Your arrows never miss their mark!"),
+        '4': (Paladin, f"Ah, {name}, the noble Paladin! ✨ Your faith in the light is unyielding!"),
+    }
+    character_class, character_message = character_map.get(character_choice,
+                                                           (Warrior, "Invalid choice. Defaulting to Warrior. ⚔️"))
+    print(f"\n{character_message}")
+    time.sleep(2)
+    return character_class(name)
 
-    def attack(self, opponent):
-        attack_amount = random.randint(5, self.attack_power)
-        opponent.health -= attack_amount
-        print(f"\n{self.name} attacks {opponent.name} for {attack_amount} damage! ⚔️")
 
-    def display_stats(self):
-        print(f"""
-📊 {self.name}'s Stats
-─────────────────────────────
-💖 Health: {self.health}/{self.max_health}
-⚔️ Attack Power: {self.attack_power}
-✨ Healing Capacity: {self.healing_capacity}
-─────────────────────────────
-        """)
-
-    def heal(self):
-        heal_amount = random.randint(5, 20)
-        self.health += heal_amount
-        if self.health > self.max_health:
-            self.health = self.max_health
-        print(f"\n{self.name}'s Health: {self.health}/{self.max_health} 💖")
+def select_character():
+    show_class_menu()
+    class_choice = input("Enter the number of your class choice 📝: ")
+    name = input("Enter your character's name 🦸: ")
+    return create_character(class_choice, name)

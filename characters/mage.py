@@ -1,5 +1,5 @@
 # mage.py
-from character import Character
+from characters.character import Character
 
 class Mage(Character):
     def __init__(self, name):
