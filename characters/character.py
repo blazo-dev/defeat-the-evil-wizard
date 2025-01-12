@@ -13,7 +13,7 @@ class Character:
     def attack(self, opponent):
         attack_amount = random.randint(5, self.attack_power)
         opponent.health -= attack_amount
-        print(f"\n{self.name} attacks {opponent.name} for {attack_amount} damage! ⚔️")
+        print(f"\n{self.name} attacks {opponent.name} for {attack_amount} damage! 💔")
 
     def display_stats(self):
         print(f"""
@@ -31,3 +31,9 @@ class Character:
         if self.health > self.max_health:
             self.health = self.max_health
         print(f"\n{self.name}'s Health: {self.health}/{self.max_health} 💖")
+
+    def special_ability(self, opponent):
+        print(f"\n{self.name}, your journey is far from over... 🏹")
+        print(
+            "You have not yet unlocked your special ability. Only through fierce battles and relentless training will you awaken your true power! 🔥")
+        print("Keep pushing forward, and your strength will grow beyond imagination! 💪")

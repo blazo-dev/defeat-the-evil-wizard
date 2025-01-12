@@ -5,7 +5,7 @@ from characters.evil_wizard import EvilWizard
 
 
 def handle_player_action(player: Character, wizard: EvilWizard):
-    choice = input("\nChoose an action 🔽: ")
+    choice = input("Choose an action 🔽: ")
 
     if choice == '1':
         print(f"\n{player.name} readies their weapon for the attack! ⚔️")
@@ -14,8 +14,7 @@ def handle_player_action(player: Character, wizard: EvilWizard):
     elif choice == '2':
         print(f"\n{player.name} is preparing to use their special ability... ✨")
         time.sleep(1)
-        # Call the special ability here
-        pass  # Implement this logic later
+        player.special_ability(wizard)
     elif choice == '3':
         print(f"\n{player.name} takes a deep breath and prepares to heal... 💖")
         time.sleep(1)
