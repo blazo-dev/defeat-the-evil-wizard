@@ -1,0 +1,24 @@
+# Python
+*.pyc
+*.pyo
+__pycache__/
+
+# IDE
+.idea/*
+*.iml
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv/
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# Distribution / Packaging
+*.egg
+*.egg-info/
+dist/
+build/
+*.whl
