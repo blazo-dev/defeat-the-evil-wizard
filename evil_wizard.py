@@ -8,5 +8,7 @@ class EvilWizard(Character):
 
     # Evil Wizard's special ability: it can regenerate health
     def regenerate(self):
-        self.health += 5  # Lower regeneration amount
-        print(f"{self.name} regenerates 5 health! Current health: {self.health}")
+        regeneration_amount = 5
+
+        self.health += regeneration_amount
+        print(f"{self.name} regenerates {regeneration_amount} health! Current health: {self.health}")

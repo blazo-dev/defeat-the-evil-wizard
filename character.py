@@ -1,19 +1,33 @@
 # character.py
+import random
+
 
 class Character:
-    def __init__(self, name, health, attack_power):
+    def __init__(self, name: str, health: int, attack_power: int, healing_capacity: int = 20):
         self.name = name
         self.health = health
         self.attack_power = attack_power
-        self.max_health = health  # Store the original health for maximum limit
+        self.max_health = health
+        self.healing_capacity = healing_capacity
 
     def attack(self, opponent):
-        opponent.health -= self.attack_power
-        print(f"{self.name} attacks {opponent.name} for {self.attack_power} damage!")
-        if opponent.health <= 0:
-            print(f"{opponent.name} has been defeated!")
+        attack_amount = random.randint(5, self.attack_power)
+        opponent.health -= attack_amount
+        print(f"\n{self.name} attacks {opponent.name} for {attack_amount} damage! ⚔️")
 
     def display_stats(self):
-        print(f"{self.name}'s Stats - Health: {self.health}/{self.max_health}, Attack Power: {self.attack_power}")
+        print(f"""
+📊 {self.name}'s Stats
+─────────────────────────────
+💖 Health: {self.health}/{self.max_health}
+⚔️ Attack Power: {self.attack_power}
+✨ Healing Capacity: {self.healing_capacity}
+─────────────────────────────
+        """)
 
-    # Add your heal method here
+    def heal(self):
+        heal_amount = random.randint(5, 20)
+        self.health += heal_amount
+        if self.health > self.max_health:
+            self.health = self.max_health
+        print(f"\n{self.name}'s Health: {self.health}/{self.max_health} 💖")
