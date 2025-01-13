@@ -19,5 +19,3 @@ def show_battle_menu():
 3. 💖 Heal
 4. 📊 View Stats
 """)
-    time.sleep(1)
-

@@ -1,6 +1,7 @@
 import time
 
 from characters.archer import Archer
+from characters.paladin import Paladin
 from menus import show_battle_menu
 from actions import handle_player_action
 from story import display_defeat_message, display_victory_message
@@ -20,6 +21,12 @@ def battle(player, wizard):
                 if isinstance(player, Archer) and player.evasion_status:
                     print(f"\nWith a swift roll, {player.name} dodges the incoming strike! 💨")
                     player.reset_evasion()
+                    continue  # Skip the wizard's attack for this round
+
+                if isinstance(player, Paladin) and player.defense_status:
+                    print(
+                        f"\nWith unwavering faith, {player.name} summons a divine shield, blocking the incoming strike! 🛡️✨")
+                    player.reset_defense()
                     continue  # Skip the wizard's attack for this round
 
                 wizard.attack(player)
